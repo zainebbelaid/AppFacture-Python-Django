@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel ="stylesheet" href= "style.css" />    <title>Inscription</title>
+    <style>
+.box
+{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      width: 400px;
+      padding: 40px;
+      background: rgb(9 11 12 / 58%);
+      box-sizing: border-box;
+      box-shadow: 0 15px 25px rgba(0,0,0,.5);
+      border-radius: 10px;
+}
+.box h3
+{
+    margin: 0 0 15px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+}
+.box .inputbox
+{
+   position: relative; 
+}
+.box .inputbox input
+{
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom:1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+.box .inputbox label 
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    letter-spacing: 1px;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+.box .inputbox input:focus ~ label,
+.box .inputbox input:valid ~ label
+{
+    top: -18px;
+    left: 0;
+    color: #03a9f4;
+    font-size: 12px;
+}
+.box input[type="submit"]
+{
+  background: transparent;
+  border: none;
+  outline: #fff;
+  color:#fff;
+  background: #03a9f4;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+        </style>
+</head>
+<body>
+
+    <div class="box">
+    <h3>Inscription </h3>
+    <form action="" method="POST">
+        {% csrf_token %}
+
+           <div class="inputbox">         
+            <input type="text" name="username" required=required>
+            <label for="username">Username</label>
+            </div> 
+            <div class="inputbox">         
+            <input type="text" name="cin" required=required>
+            <label for="cin">CIN</label>
+            </div>
+            <div class="inputbox">         
+            <input type="text" name="refference" required=required>
+            <label for="refference">Refference</label>
+            </div>
+            <div class="inputbox">         
+            <input type="password" name="password" required=required>
+            <label for="password">Password</label>
+            </div>
+            <div class="inputbox">         
+            <input type="contractnumber" name="contractnumber" required=required>
+            <label for="contractnumber">Contractnumber</label>
+            </div>  
+       
+
+        {% if form.errors %}
+        {% for field in form %}
+            {% for field in form %}
+                {{error|escape}} 
+            {% endfor %}
+        {% endfor %}
+        {% for error in form.nom_field.errors %}
+            {{error|escape}} 
+        {% endfor %}
+        {% endif %}<br><br>
+        
+        <input type="submit" value="Enregistrer">
+
+    </form>
+</div>
+
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>  </body>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+  
+</body>
+</html>
